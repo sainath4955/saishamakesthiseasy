@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YES 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    background:linear-gradient(135deg,#ff758f,#ffb3c6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:Poppins;
+    perspective:1200px;
+    color:#444;
+}
+
+/* Paper */
+.paper{
+    background:#fffdf8;
+    width:440px;
+    padding:42px;
+    border-radius:6px;
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    transform-origin:top;
+    transform:rotateX(-90deg);
+    animation:unfold 1.4s ease forwards;
+}
+
+/* Fold animation */
+@keyframes unfold{
+    0%{
+        transform:rotateX(-90deg);
+        opacity:0;
+    }
+    60%{
+        transform:rotateX(10deg);
+        opacity:1;
+    }
+    100%{
+        transform:rotateX(0deg);
+    }
+}
+
+h1{
+    font-family:'Playfair Display';
+    font-size:40px;
+    color:#c9184a;
+    text-align:center;
+    margin-bottom:18px;
+}
+
+p{
+    font-size:16px;
+    line-height:1.9;
+    white-space:pre-line;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="paper">
+    <h1>YES 💖</h1>
+    <p id="message"></p>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name") || "Tum";
+
+const messages = [
+
+`${name} 💗
+sach bolun toh thoda darr tha 😅
+par jab YES aaya na,
+dil ne bas itna bola —
+haan yaar, ye moment worth it tha ✨`,
+
+`${name} 🌸
+ye koi filmy scene nahi tha 🎬
+bas dil se nikla ek sawaal tha.
+Aur tumhara YES…
+bilkul sahi waqt pe aaya 💖`,
+
+`Pata nahi ${name} 😌
+tumne YES bolke kya socha,
+par idhar ek smile aa gayi —
+badi wali, bina wajah wali 😊`,
+
+`${name} 💕
+aaj koi promise nahi,
+koi pressure nahi.
+Bas ek halka sa moment —
+aur tumhara YES 🌷`,
+
+`Sach bataun ${name} 🙈
+ye page bhi thoda nervous tha.
+Par tumne YES bol diya,
+ab toh sab theek lag raha hai 💗`,
+
+`${name} ✨
+log bade dialogues bolte hain,
+mujhe sirf itna kehna tha —
+achha laga… bahut achha laga ❤️`,
+
+`${name} 🌹
+is YES mein shor nahi tha,
+par sukoon tha.
+Aur sukoon mil jaye toh
+aur kya chahiye 😌`,
+
+`${name} 💌
+tumhara YES aise aaya
+jaise late night message —
+unexpected,
+par dil ko achha lagne wala 💫`,
+
+`${name} 😊
+agar iss page ka favourite moment poochho,
+toh jawab simple hai —
+jab tumne YES bola 💖`,
+
+`${name} ❤️
+kuch cheezein explain nahi hoti.
+Bas feel hoti hain.
+Jaise ye YES ✨`
+
+];
+
+const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+document.getElementById("message").innerText = randomMsg;
+</script>
+
+</body>
+</html>

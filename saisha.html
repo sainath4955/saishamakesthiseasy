@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+<style>
+body{
+    margin:0; height:100vh;
+    background:radial-gradient(circle at top,#ffd6e0,#ff4d6d);
+    font-family:Poppins;
+    display:flex; align-items:center; justify-content:center;
+}
+.card{
+    background:#fff; width:380px; padding:35px;
+    border-radius:22px; text-align:center;
+    box-shadow:0 25px 60px rgba(0,0,0,.3);
+}
+h1{font-family:'Playfair Display'; color:#c9184a;}
+input{
+    width:100%; padding:12px; border-radius:25px;
+    border:1px solid #ffb3c6; text-align:center;
+}
+button{
+    margin-top:20px; padding:12px 30px;
+    border:none; border-radius:25px;
+    background:#ff4d6d; color:#fff; cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>Be My Valentine 💖</h1>
+<p>Write your lover’s name</p>
+<input id="name" placeholder="His / Her Name">
+<button onclick="next()">Continue 💝</button>
+</div>
+
+<script>
+function next(){
+ let n=document.getElementById("name").value.trim();
+ if(n===""){alert("Enter a name 💗");}
+ else{location.href="saisha2.html?name="+encodeURIComponent(n);}
+}
+</script>
+
+</body>
+</html>
