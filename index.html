@@ -2,46 +2,266 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Be My Valentine 💖</title>
+<title>Generate Valentine Link 💖</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
-    margin:0; height:100vh;
+    height:100vh;
     background:radial-gradient(circle at top,#ffd6e0,#ff4d6d);
     font-family:Poppins;
-    display:flex; align-items:center; justify-content:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
+
 .card{
-    background:#fff; width:380px; padding:35px;
-    border-radius:22px; text-align:center;
-    box-shadow:0 25px 60px rgba(0,0,0,.3);
+    background:#fff;
+    width:390px;
+    padding:35px;
+    border-radius:24px;
+    text-align:center;
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
-h1{font-family:'Playfair Display'; color:#c9184a;}
+
+h1{
+    font-family:'Playfair Display';
+    color:#c9184a;
+    margin-bottom:12px;
+}
+
+p{
+    font-size:14px;
+    color:#555;
+    margin-bottom:20px;
+}
+
 input{
-    width:100%; padding:12px; border-radius:25px;
-    border:1px solid #ffb3c6; text-align:center;
+    width:100%;
+    padding:13px;
+    border-radius:30px;
+    border:1px solid #ffb3c6;
+    outline:none;
+    font-size:14px;
+    text-align:center;
+    margin-bottom:18px;
 }
+
 button{
-    margin-top:20px; padding:12px 30px;
-    border:none; border-radius:25px;
-    background:#ff4d6d; color:#fff; cursor:pointer;
+    background:linear-gradient(135deg,#ff4d6d,#ff758f);
+    border:none;
+    color:white;
+    padding:13px 30px;
+    font-size:15px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#linkBox{
+    margin-top:18px;
+    font-size:13px;
+    color:#c9184a;
+    word-break:break-all;
+}
+
+.copy{
+    margin-top:10px;
+    background:#333;
+    font-size:13px;
 }
 </style>
 </head>
+
 <body>
 
 <div class="card">
-<h1>Be My Valentine 💖</h1>
-<p>Write your lover’s name</p>
-<input id="name" placeholder="His / Her Name">
-<button onclick="next()">Continue 💝</button>
+    <h1>Valentine Link 💖</h1>
+
+    <p>
+        Naam daalo aur<br>
+        apne lover ke liye ek custom proposal link banao 😌
+    </p>
+
+    <input id="name" placeholder="Write His / Her Name 💗">
+
+    <button onclick="generateLink()">Generate Link 🔗</button>
+
+    <div id="linkBox"></div>
 </div>
 
 <script>
-function next(){
- let n=document.getElementById("name").value.trim();
- if(n===""){alert("Enter a name 💗");}
- else{location.href="saisha2.html?name="+encodeURIComponent(n);}
+function generateLink(){
+    const name = document.getElementById("name").value.trim();
+
+    if(name === ""){
+        alert("Naam toh daalo yaar 😅");
+        return;
+    }
+
+    const base =
+        window.location.origin +
+        window.location.pathname.replace("index.html","");
+
+    const finalLink =
+        base + "saisha2.html?name=" + encodeURIComponent(name);
+
+    document.getElementById("linkBox").innerHTML =
+        `Share this link 💗<br>
+        <b id="finalLink">${finalLink}</b><br>
+        <button class="copy" onclick="copyLink()">Copy Link 📋</button>`;
+}
+
+function copyLink(){
+    const text =
+        document.getElementById("finalLink").innerText;
+    navigator.clipboard.writeText(text);
+    alert("Link copied 💖");
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Generate Valentine Link 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    background:radial-gradient(circle at top,#ffd6e0,#ff4d6d);
+    font-family:Poppins;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.card{
+    background:#fff;
+    width:390px;
+    padding:35px;
+    border-radius:24px;
+    text-align:center;
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+h1{
+    font-family:'Playfair Display';
+    color:#c9184a;
+    margin-bottom:12px;
+}
+
+p{
+    font-size:14px;
+    color:#555;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:13px;
+    border-radius:30px;
+    border:1px solid #ffb3c6;
+    outline:none;
+    font-size:14px;
+    text-align:center;
+    margin-bottom:18px;
+}
+
+button{
+    background:linear-gradient(135deg,#ff4d6d,#ff758f);
+    border:none;
+    color:white;
+    padding:13px 30px;
+    font-size:15px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#linkBox{
+    margin-top:18px;
+    font-size:13px;
+    color:#c9184a;
+    word-break:break-all;
+}
+
+.copy{
+    margin-top:10px;
+    background:#333;
+    font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Valentine Link 💖</h1>
+
+    <p>
+        Naam daalo aur<br>
+        apne lover ke liye ek custom proposal link banao 😌
+    </p>
+
+    <input id="name" placeholder="Write His / Her Name 💗">
+
+    <button onclick="generateLink()">Generate Link 🔗</button>
+
+    <div id="linkBox"></div>
+</div>
+
+<script>
+function generateLink(){
+    const name = document.getElementById("name").value.trim();
+
+    if(name === ""){
+        alert("Naam toh daalo yaar 😅");
+        return;
+    }
+
+    const base =
+        window.location.origin +
+        window.location.pathname.replace("index.html","");
+
+    const finalLink =
+        base + "saisha2.html?name=" + encodeURIComponent(name);
+
+    document.getElementById("linkBox").innerHTML =
+        `Share this link 💗<br>
+        <b id="finalLink">${finalLink}</b><br>
+        <button class="copy" onclick="copyLink()">Copy Link 📋</button>`;
+}
+
+function copyLink(){
+    const text =
+        document.getElementById("finalLink").innerText;
+    navigator.clipboard.writeText(text);
+    alert("Link copied 💖");
 }
 </script>
 
